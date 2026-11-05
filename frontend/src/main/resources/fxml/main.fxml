@@ -7,24 +7,44 @@
             fx:controller="com.injibara.iams.frontend.controller.MainController"
             styleClass="main-root"
             stylesheets="@/css/app.css">
-    <left>
-        <VBox spacing="4" styleClass="sidebar" prefWidth="220">
-            <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
-            <Label text="IAMS" styleClass="brand"/>
-            <Label fx:id="userLabel" styleClass="user-label"/>
-            <Separator/>
-            <Button text="Dashboard" onAction="#showDashboard" styleClass="nav-btn"/>
-            <Button text="Inventory" onAction="#showInventory" styleClass="nav-btn"/>
-            <Button text="Receive Stock" onAction="#showReceive" styleClass="nav-btn"/>
-            <Button text="Issue Stock" onAction="#showIssue" styleClass="nav-btn"/>
-            <Button text="Low Stock" onAction="#showLowStock" styleClass="nav-btn"/>
-            <Button text="Transactions" onAction="#showTransactions" styleClass="nav-btn"/>
-            <Button text="Reports" onAction="#showReports" styleClass="nav-btn"/>
-            <Region VBox.vgrow="ALWAYS"/>
-            <Button text="Logout" onAction="#handleLogout" styleClass="logout-btn"/>
+    <top>
+        <VBox>
+            <HBox spacing="8" alignment="CENTER_LEFT" styleClass="header" prefHeight="60">
+                <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+                <Label text="IAMS" styleClass="brand"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Home" onAction="#showHome" styleClass="nav-btn"/>
+                <Button text="About" onAction="#showAbout" styleClass="nav-btn"/>
+                <Button text="Gallery" onAction="#showGallery" styleClass="nav-btn"/>
+                <Button text="Services" onAction="#showServices" styleClass="nav-btn"/>
+                <Button text="Contact" onAction="#showContact" styleClass="nav-btn"/>
+                <MenuButton text="Modules" styleClass="nav-btn">
+                    <items>
+                        <MenuItem text="Dashboard" onAction="#showDashboard"/>
+                        <MenuItem text="Inventory" onAction="#showInventory"/>
+                        <MenuItem text="Receive Stock" onAction="#showReceive"/>
+                        <MenuItem text="Issue Stock" onAction="#showIssue"/>
+                        <MenuItem text="Low Stock" onAction="#showLowStock"/>
+                        <MenuItem text="Transactions" onAction="#showTransactions"/>
+                        <MenuItem text="Reports" onAction="#showReports"/>
+                    </items>
+                </MenuButton>
+                <Separator orientation="VERTICAL"/>
+                <Button text="Sign In" onAction="#showSignIn" styleClass="nav-btn"/>
+                <Button text="Sign Up" onAction="#showSignUp" styleClass="primary-btn"/>
+                <Button text="WhatsApp" onAction="#openWhatsApp" styleClass="whatsapp-btn"/>
+            </HBox>
         </VBox>
-    </left>
+    </top>
     <center>
         <StackPane fx:id="contentPane" styleClass="content"/>
     </center>
+    <bottom>
+        <HBox spacing="10" alignment="CENTER" styleClass="footer" prefHeight="40">
+            <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+            <Label text="© 2026 Injibara University - Inventory and Asset Management System" styleClass="footer-text"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Contact: haymanotebabu2@gmail.com" styleClass="footer-text"/>
+        </HBox>
+    </bottom>
 </BorderPane>

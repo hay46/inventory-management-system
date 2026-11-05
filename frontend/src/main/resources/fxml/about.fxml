@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.injibara.iams.frontend.controller.InfoController"
+      styleClass="view" stylesheets="@/css/app.css">
+    <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
+    <Label text="About IAMS" styleClass="view-title"/>
+    <Label text="Inventory and Asset Management System (IAMS) is a desktop application developed for Injibara University's Advanced Programming and Software Architecture course." wrapText="true" maxWidth="700"/>
+    <Label text="It helps organizations register inventory items, track stock receiving and issuing, monitor low-stock levels, and generate reports." wrapText="true" maxWidth="700"/>
+    <Label text="Technology: JavaFX (frontend), Spring Boot (backend), PostgreSQL/H2 (database), REST APIs, JWT authentication." wrapText="true" maxWidth="700"/>
+    <Button text="Back to Home" onAction="#goHome"/>
+</VBox>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.injibara.iams.frontend.controller.InfoController"
+      styleClass="view" stylesheets="@/css/app.css">
+    <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
+    <Label text="Services" styleClass="view-title"/>
+    <VBox spacing="8">
+        <Label text="• Inventory item registration and management" />
+        <Label text="• Stock receiving and issuing transactions" />
+        <Label text="• Stock adjustment with audit history" />
+        <Label text="• Low-stock and out-of-stock alerts" />
+        <Label text="• Transaction history tracking" />
+        <Label text="• Inventory reports (CSV/PDF) and export/import" />
+        <Label text="• Role-based user management" />
+    </VBox>
+    <Button text="Back to Home" onAction="#goHome"/>
+</VBox>

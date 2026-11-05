@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.injibara.iams.frontend.controller.SignupController"
+      styleClass="view" stylesheets="@/css/app.css">
+    <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
+    <Label text="Sign Up" styleClass="view-title"/>
+    <TextField fx:id="usernameField" promptText="Username"/>
+    <PasswordField fx:id="passwordField" promptText="Password"/>
+    <TextField fx:id="fullNameField" promptText="Full Name"/>
+    <TextField fx:id="emailField" promptText="Email"/>
+    <Button text="Register" onAction="#handleRegister" styleClass="primary-btn"/>
+    <Label fx:id="statusLabel" styleClass="status"/>
+    <Button text="Back to Home" onAction="#goHome"/>
+</VBox>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.injibara.iams.frontend.controller.InfoController"
+      styleClass="view" stylesheets="@/css/app.css">
+    <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+    <Label text="Inventory and Asset Management System" styleClass="title"/>
+    <Label text="IAMS - Injibara University" styleClass="subtitle"/>
+    <Label text="A complete desktop application for managing organizational inventory, equipment, and assets." wrapText="true" maxWidth="600" styleClass="status"/>
+    <HBox spacing="12">
+        <Button text="Get Started (Sign In)" onAction="#goSignIn" styleClass="primary-btn"/>
+        <Button text="Sign Up" onAction="#goSignUp"/>
+        <Button text="Contact Us" onAction="#goContact"/>
+    </HBox>
+    <Label text="Features: Item registration, stock receiving/issuing, low-stock alerts, reports, file import/export." wrapText="true" maxWidth="600"/>
+</VBox>

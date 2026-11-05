@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.injibara.iams.frontend.controller.InfoController"
+      styleClass="view" stylesheets="@/css/app.css">
+    <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
+    <Label text="Gallery" styleClass="view-title"/>
+    <TilePane hgap="10" vgap="10" prefColumns="4">
+        <VBox styleClass="card" prefWidth="150"><Label text="Item 1" styleClass="card-title"/><Label text="Computer" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="150"><Label text="Item 2" styleClass="card-title"/><Label text="Printer" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="150"><Label text="Item 3" styleClass="card-title"/><Label text="Chair" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="150"><Label text="Item 4" styleClass="card-title"/><Label text="Desk" styleClass="card-value"/></VBox>
+    </TilePane>
+    <Label text="Gallery shows sample inventory items. Connect to real data via the Inventory module."/>
+    <Button text="Back to Home" onAction="#goHome"/>
+</VBox>

@@ -21,4 +21,11 @@ public class AuthController {
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest req) {
         return ResponseEntity.ok(authService.login(req));
     }
+
+    @PostMapping("/register")
+    public ResponseEntity<LoginResponse> register(@RequestBody java.util.Map<String, String> body) {
+        return ResponseEntity.ok(authService.register(
+                body.get("username"), body.get("password"),
+                body.get("fullName"), body.get("email")));
+    }
 }

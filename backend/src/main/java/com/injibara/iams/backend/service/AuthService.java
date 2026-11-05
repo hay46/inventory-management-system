@@ -4,6 +4,7 @@ import com.injibara.iams.backend.domain.Role;
 import com.injibara.iams.backend.domain.User;
 import com.injibara.iams.backend.dto.LoginRequest;
 import com.injibara.iams.backend.dto.LoginResponse;
+import com.injibara.iams.backend.repository.RoleRepository;
 import com.injibara.iams.backend.repository.UserRepository;
 import com.injibara.iams.backend.security.JwtUtil;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,10 +17,38 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
 
-    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtUtil jwtUtil) {
+    private final RoleRepository roleRepository;
+
+    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtUtil jwtUtil,
+                       RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtUtil = jwtUtil;
+        this.roleRepository = roleRepository;
+    }
+
+    public LoginResponse register(String username, String password, String fullName, String email) {
+        if (userRepository.existsByUsername(username)) {
+            throw new IllegalArgumentException("Username already exists");
+        }
+        Role role = roleRepository.findByName("VIEWER")
+                .orElseThrow(() -> new IllegalArgumentException("Default role not found"));
+        User user = User.builder()
+                .username(username)
+                .passwordHash(passwordEncoder.encode(password))
+                .fullName(fullName)
+                .email(email)
+                .role(role)
+                .active(true)
+                .build();
+        userRepository.save(user);
+        String token = jwtUtil.generateToken(user.getUsername(), role.getName());
+        return LoginResponse.builder()
+                .token(token)
+                .username(user.getUsername())
+                .fullName(user.getFullName())
+                .role(role.getName())
+                .build();
     }
 
     public LoginResponse login(LoginRequest req) {
