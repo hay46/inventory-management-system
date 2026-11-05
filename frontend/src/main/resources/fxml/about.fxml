@@ -2,13 +2,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.injibara.iams.frontend.controller.InfoController"
-      styleClass="view" stylesheets="@/css/app.css">
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fitToWidth="true" styleClass="view" fx:controller="com.injibara.iams.frontend.controller.InfoController" stylesheets="@/css/app.css"><VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
+      styleClass="view">
     <VBox alignment="CENTER" spacing="10" styleClass="hero" prefHeight="180">
         <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
-        <Label text="ℹ️" styleClass="hero-icon"/>
+        <FontIcon iconLiteral="mdi2i-information" iconSize="48" styleClass="hero-icon"/>
         <Label text="About IAMS" styleClass="hero-title"/>
         <Label text="Learn more about the system and its objectives" styleClass="hero-subtitle"/>
     </VBox>
@@ -25,16 +25,19 @@
         </VBox>
         <VBox spacing="6" styleClass="card" maxWidth="700">
             <Label text="Objectives" styleClass="section-title"/>
-            <Label text="• Improve inventory accuracy and accountability"/>
-            <Label text="• Provide secure role-based access"/>
-            <Label text="• Automate stock calculations and alerts"/>
-            <Label text="• Generate inventory reports (CSV/PDF)"/>
-            <Label text="• Demonstrate advanced Java programming concepts"/>
+            <Label text="Improve inventory accuracy and accountability"/>
+            <Label text="Provide secure role-based access"/>
+            <Label text="Automate stock calculations and alerts"/>
+            <Label text="Generate inventory reports (CSV/PDF)"/>
+            <Label text="Demonstrate advanced Java programming concepts"/>
         </VBox>
         <HBox spacing="12">
-            <Button text="🏠 Home" onAction="#goHome" styleClass="primary-btn"/>
-            <Button text="🛠 Services" onAction="#goServices"/>
-            <Button text="📞 Contact" onAction="#goContact"/>
+            <Button text="Home" onAction="#goHome" styleClass="primary-btn"/>
+            <Button text="Services" onAction="#goServices"/>
+            <Button text="Contact" onAction="#goContact"/>
         </HBox>
     </VBox>
-</VBox>
+</VBox></ScrollPane>
+
+
+

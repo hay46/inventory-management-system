@@ -3,10 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="12" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.injibara.iams.frontend.controller.ReportsController"
-      styleClass="view"
-      stylesheets="@/css/app.css">
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fitToWidth="true" styleClass="view" fx:controller="com.injibara.iams.frontend.controller.ReportsController" stylesheets="@/css/app.css"><VBox spacing="12" xmlns:fx="http://javafx.com/fxml"
+      styleClass="view">
     <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
     <Label text="Reports" styleClass="view-title"/>
     <HBox spacing="10">
@@ -18,4 +16,7 @@
         <Button text="Summary" onAction="#showSummary"/>
     </HBox>
     <TextArea fx:id="summaryArea" VBox.vgrow="ALWAYS" editable="false" styleClass="status"/>
-</VBox>
+</VBox></ScrollPane>
+
+
+

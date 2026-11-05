@@ -3,9 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="12" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.injibara.iams.frontend.controller.LowStockController"
-      styleClass="view"`n      stylesheets="@/css/app.css">
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fitToWidth="true" styleClass="view" fx:controller="com.injibara.iams.frontend.controller.LowStockController" stylesheets="@/css/app.css"><VBox spacing="12" xmlns:fx="http://javafx.com/fxml"
+      styleClass="view"`n>
     <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
     <HBox alignment="CENTER_LEFT">
         <Label text="Low Stock Items" styleClass="view-title"/>
@@ -20,5 +19,7 @@
             <TableColumn fx:id="colMin" text="Min" prefWidth="70"/>
         </columns>
     </TableView>
-</VBox>
+</VBox></ScrollPane>
+
+
 

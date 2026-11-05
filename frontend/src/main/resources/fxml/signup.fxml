@@ -3,9 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="12" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.injibara.iams.frontend.controller.SignupController"
-      styleClass="view" stylesheets="@/css/app.css">
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fitToWidth="true" styleClass="view" fx:controller="com.injibara.iams.frontend.controller.SignupController" stylesheets="@/css/app.css"><VBox spacing="12" xmlns:fx="http://javafx.com/fxml"
+      styleClass="view">
     <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
     <Label text="Sign Up" styleClass="view-title"/>
     <Label text="Create a new account to access IAMS."/>
@@ -23,4 +22,7 @@
         <Button text="Sign In" onAction="#goSignIn" styleClass="nav-btn"/>
     </VBox>
     <Button text="Back to Home" onAction="#goHome"/>
-</VBox>
+</VBox></ScrollPane>
+
+
+

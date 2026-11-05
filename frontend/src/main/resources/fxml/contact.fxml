@@ -2,13 +2,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.injibara.iams.frontend.controller.InfoController"
-      styleClass="view" stylesheets="@/css/app.css">
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fitToWidth="true" styleClass="view" fx:controller="com.injibara.iams.frontend.controller.InfoController" stylesheets="@/css/app.css"><VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
+      styleClass="view">
     <VBox alignment="CENTER" spacing="10" styleClass="hero" prefHeight="160">
         <padding><Insets top="20" right="40" bottom="20" left="40"/></padding>
-        <Label text="📞" styleClass="hero-icon"/>
+        <FontIcon iconLiteral="mdi2p-phone" iconSize="48" styleClass="hero-icon"/>
         <Label text="Contact Us" styleClass="hero-title"/>
         <Label text="Get in touch with the IAMS team" styleClass="hero-subtitle"/>
     </VBox>
@@ -16,12 +16,12 @@
         <padding><Insets top="20" right="40" bottom="20" left="40"/></padding>
         <VBox spacing="6" styleClass="card" maxWidth="700">
             <Label text="Contact Information" styleClass="section-title"/>
-            <Label text="📧 Email: haymanotebabu2@gmail.com"/>
-            <Label text="🏫 Institution: Injibara University"/>
-            <Label text="🏛️ College: College of Engineering and Technology"/>
-            <Label text="📚 Department: Software Engineering"/>
-            <Label text="📖 Course: Advanced Programming and Software Architecture"/>
-            <Label text="💬 WhatsApp: use the WhatsApp button in the header"/>
+            <Label text="Email: haymanotebabu2@gmail.com"/>
+            <Label text="Institution: Injibara University"/>
+            <Label text="College: College of Engineering and Technology"/>
+            <Label text="Department: Software Engineering"/>
+            <Label text="Course: Advanced Programming and Software Architecture"/>
+            <Label text="WhatsApp: use the WhatsApp button in the header"/>
         </VBox>
         <VBox spacing="8" styleClass="card" maxWidth="700">
             <Label text="Send a Message" styleClass="section-title"/>
@@ -31,8 +31,11 @@
             <Button text="Send Message" styleClass="primary-btn"/>
         </VBox>
         <HBox spacing="12">
-            <Button text="🏠 Home" onAction="#goHome" styleClass="primary-btn"/>
-            <Button text="💬 WhatsApp" onAction="#goHome"/>
+            <Button text="Home" onAction="#goHome" styleClass="primary-btn"/>
+            <Button text="WhatsApp" onAction="#goHome"/>
         </HBox>
     </VBox>
-</VBox>
+</VBox></ScrollPane>
+
+
+

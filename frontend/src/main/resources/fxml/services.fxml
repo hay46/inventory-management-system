@@ -2,13 +2,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.injibara.iams.frontend.controller.InfoController"
-      styleClass="view" stylesheets="@/css/app.css">
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fitToWidth="true" styleClass="view" fx:controller="com.injibara.iams.frontend.controller.InfoController" stylesheets="@/css/app.css"><VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
+      styleClass="view">
     <VBox alignment="CENTER" spacing="10" styleClass="hero" prefHeight="160">
         <padding><Insets top="20" right="40" bottom="20" left="40"/></padding>
-        <Label text="🛠️" styleClass="hero-icon"/>
+        <FontIcon iconLiteral="mdi2t-tools" iconSize="48" styleClass="hero-icon"/>
         <Label text="Services" styleClass="hero-title"/>
         <Label text="What IAMS offers to your organization" styleClass="hero-subtitle"/>
     </VBox>
@@ -16,27 +16,31 @@
         <padding><Insets top="20" right="40" bottom="20" left="40"/></padding>
         <VBox spacing="8" styleClass="card" maxWidth="700">
             <Label text="Core Services" styleClass="section-title"/>
-            <Label text="📋 Item registration and management"/>
-            <Label text="📥 Stock receiving transactions"/>
-            <Label text="📤 Stock issuing with validation"/>
-            <Label text="🔧 Stock adjustment with audit history"/>
-            <Label text="⚠️ Low-stock and out-of-stock alerts"/>
-            <Label text="📜 Transaction history tracking"/>
-            <Label text="📊 Inventory reports (CSV/PDF)"/>
+            <Label text="Item registration and management"/>
+            <Label text="Stock receiving transactions"/>
+            <Label text="Stock issuing with validation"/>
+            <Label text="Stock adjustment with audit history"/>
+            <Label text="Low-stock and out-of-stock alerts"/>
+            <Label text="Transaction history tracking"/>
+            <Label text="Inventory reports (CSV/PDF)"/>
+            <Label text="File import and export (CSV)"/>
         </VBox>
         <VBox spacing="8" styleClass="card" maxWidth="700">
             <Label text="Additional Services" styleClass="section-title"/>
-            <Label text="🔐 Role-based user management"/>
-            <Label text="🛡️ Secure authentication (JWT)"/>
-            <Label text="📈 Dashboard with live statistics"/>
-            <Label text="🔍 Search, filtering, and sorting"/>
-            <Label text="🌐 REST API for integration"/>
-            <Label text="👥 Multi-user concurrent access"/>
+            <Label text="Role-based user management"/>
+            <Label text="Secure authentication (JWT)"/>
+            <Label text="Dashboard with live statistics"/>
+            <Label text="Search, filtering, and sorting"/>
+            <Label text="REST API for integration"/>
+            <Label text="Multi-user concurrent access"/>
         </VBox>
         <HBox spacing="12">
-            <Button text="🏠 Home" onAction="#goHome" styleClass="primary-btn"/>
-            <Button text="📞 Contact" onAction="#goContact"/>
+            <Button text="Home" onAction="#goHome" styleClass="primary-btn"/>
+            <Button text="Contact" onAction="#goContact"/>
             <Button text="Sign In" onAction="#goSignIn"/>
         </HBox>
     </VBox>
-</VBox>
+</VBox></ScrollPane>
+
+
+

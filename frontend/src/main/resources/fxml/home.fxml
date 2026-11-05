@@ -2,73 +2,69 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.injibara.iams.frontend.controller.InfoController"
       styleClass="view" stylesheets="@/css/app.css">
-    <!-- Hero Section -->
     <VBox alignment="CENTER" spacing="16" styleClass="hero" prefHeight="260">
         <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
-        <Label text="📦" styleClass="hero-icon"/>
+        <FontIcon iconLiteral="mdi2h-home" iconSize="48" styleClass="hero-icon"/>
         <Label text="Inventory and Asset Management System" styleClass="hero-title"/>
-        <Label text="IAMS — Smart, Secure, and Simple" styleClass="hero-subtitle"/>
+        <Label text="IAMS - Smart, Secure, and Simple" styleClass="hero-subtitle"/>
         <Label text="Manage your organization's inventory, equipment, and assets with ease." styleClass="hero-desc" wrapText="true" maxWidth="600"/>
         <HBox spacing="12" alignment="CENTER">
-            <Button text="🚀 Get Started" onAction="#goSignIn" styleClass="hero-btn"/>
-            <Button text="📝 Sign Up" onAction="#goSignUp" styleClass="hero-btn-outline"/>
-            <Button text="📞 Contact" onAction="#goContact" styleClass="hero-btn-outline"/>
+            <Button text="Get Started" onAction="#goSignIn" styleClass="hero-btn"/>
+            <Button text="Sign Up" onAction="#goSignUp" styleClass="hero-btn-outline"/>
+            <Button text="Contact" onAction="#goContact" styleClass="hero-btn-outline"/>
         </HBox>
     </VBox>
-
-    <!-- Features Section -->
     <VBox spacing="16" styleClass="section">
         <padding><Insets top="30" right="40" bottom="20" left="40"/></padding>
-        <Label text="✨ Key Features" styleClass="section-title"/>
+        <Label text="Key Features" styleClass="section-title"/>
         <TilePane hgap="16" vgap="16" prefColumns="4">
-            <VBox styleClass="feature-card" prefWidth="200">
-                <Label text="📋" styleClass="feature-icon"/>
+            <VBox styleClass="feature-card" prefWidth="200" alignment="CENTER" spacing="6">
+                <FontIcon iconLiteral="mdi2f-file-document-outline" iconSize="32" styleClass="feature-icon"/>
                 <Label text="Item Management" styleClass="feature-title"/>
                 <Label text="Register and manage inventory items" wrapText="true" maxWidth="180"/>
             </VBox>
-            <VBox styleClass="feature-card" prefWidth="200">
-                <Label text="📥" styleClass="feature-icon"/>
+            <VBox styleClass="feature-card" prefWidth="200" alignment="CENTER" spacing="6">
+                <FontIcon iconLiteral="mdi2t-tray-arrow-down" iconSize="32" styleClass="feature-icon"/>
                 <Label text="Stock Receiving" styleClass="feature-title"/>
                 <Label text="Record incoming stock transactions" wrapText="true" maxWidth="180"/>
             </VBox>
-            <VBox styleClass="feature-card" prefWidth="200">
-                <Label text="📤" styleClass="feature-icon"/>
+            <VBox styleClass="feature-card" prefWidth="200" alignment="CENTER" spacing="6">
+                <FontIcon iconLiteral="mdi2t-tray-arrow-up" iconSize="32" styleClass="feature-icon"/>
                 <Label text="Stock Issuing" styleClass="feature-title"/>
                 <Label text="Issue items with validation" wrapText="true" maxWidth="180"/>
             </VBox>
-            <VBox styleClass="feature-card" prefWidth="200">
-                <Label text="⚠️" styleClass="feature-icon"/>
+            <VBox styleClass="feature-card" prefWidth="200" alignment="CENTER" spacing="6">
+                <FontIcon iconLiteral="mdi2a-alert" iconSize="32" styleClass="feature-icon"/>
                 <Label text="Low-Stock Alerts" styleClass="feature-title"/>
                 <Label text="Automatic low-stock detection" wrapText="true" maxWidth="180"/>
             </VBox>
-            <VBox styleClass="feature-card" prefWidth="200">
-                <Label text="📊" styleClass="feature-icon"/>
+            <VBox styleClass="feature-card" prefWidth="200" alignment="CENTER" spacing="6">
+                <FontIcon iconLiteral="mdi2c-chart-bar" iconSize="32" styleClass="feature-icon"/>
                 <Label text="Reports" styleClass="feature-title"/>
                 <Label text="Export CSV and PDF reports" wrapText="true" maxWidth="180"/>
             </VBox>
-            <VBox styleClass="feature-card" prefWidth="200">
-                <Label text="📁" styleClass="feature-icon"/>
+            <VBox styleClass="feature-card" prefWidth="200" alignment="CENTER" spacing="6">
+                <FontIcon iconLiteral="mdi2f-file-import" iconSize="32" styleClass="feature-icon"/>
                 <Label text="File Import/Export" styleClass="feature-title"/>
                 <Label text="Import and export inventory data" wrapText="true" maxWidth="180"/>
             </VBox>
-            <VBox styleClass="feature-card" prefWidth="200">
-                <Label text="🔐" styleClass="feature-icon"/>
+            <VBox styleClass="feature-card" prefWidth="200" alignment="CENTER" spacing="6">
+                <FontIcon iconLiteral="mdi2l-lock" iconSize="32" styleClass="feature-icon"/>
                 <Label text="Secure Access" styleClass="feature-title"/>
                 <Label text="Role-based authentication" wrapText="true" maxWidth="180"/>
             </VBox>
-            <VBox styleClass="feature-card" prefWidth="200">
-                <Label text="📈" styleClass="feature-icon"/>
+            <VBox styleClass="feature-card" prefWidth="200" alignment="CENTER" spacing="6">
+                <FontIcon iconLiteral="mdi2c-chart-line" iconSize="32" styleClass="feature-icon"/>
                 <Label text="Dashboard" styleClass="feature-title"/>
                 <Label text="Live statistics and analytics" wrapText="true" maxWidth="180"/>
             </VBox>
         </TilePane>
     </VBox>
-
-    <!-- Stats Section -->
     <HBox spacing="16" alignment="CENTER" styleClass="section">
         <padding><Insets top="10" right="40" bottom="30" left="40"/></padding>
         <VBox styleClass="stat-card" prefWidth="180" alignment="CENTER">

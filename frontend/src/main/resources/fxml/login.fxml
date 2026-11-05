@@ -2,11 +2,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<VBox spacing="12" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.injibara.iams.frontend.controller.LoginController"
-      styleClass="login-root"
-      stylesheets="@/css/app.css">
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fitToWidth="true" styleClass="view" fx:controller="com.injibara.iams.frontend.controller.LoginController" stylesheets="@/css/app.css"><VBox spacing="12" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+      styleClass="login-root">
     <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
 
     <Label text="Inventory and Asset Management System" styleClass="title"/>
@@ -26,4 +25,7 @@
     </VBox>
 
     <Label text="Default: admin / admin123" styleClass="hint"/>
-</VBox>
+</VBox></ScrollPane>
+
+
+

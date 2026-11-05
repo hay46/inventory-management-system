@@ -3,10 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="16" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.injibara.iams.frontend.controller.DashboardController"
-      styleClass="view"
-      stylesheets="@/css/app.css">
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fitToWidth="true" styleClass="view" fx:controller="com.injibara.iams.frontend.controller.DashboardController" stylesheets="@/css/app.css"><VBox spacing="16" xmlns:fx="http://javafx.com/fxml"
+      styleClass="view">
     <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
     <Label text="Dashboard" styleClass="view-title"/>
     <HBox spacing="16">
@@ -26,4 +24,7 @@
         </columns>
     </TableView>
     <Button text="Refresh" onAction="#refresh"/>
-</VBox>
+</VBox></ScrollPane>
+
+
+

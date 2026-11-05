@@ -2,31 +2,34 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.injibara.iams.frontend.controller.InfoController"
-      styleClass="view" stylesheets="@/css/app.css">
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fitToWidth="true" styleClass="view" fx:controller="com.injibara.iams.frontend.controller.InfoController" stylesheets="@/css/app.css"><VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
+      styleClass="view">
     <VBox alignment="CENTER" spacing="10" styleClass="hero" prefHeight="160">
         <padding><Insets top="20" right="40" bottom="20" left="40"/></padding>
-        <Label text="🖼️" styleClass="hero-icon"/>
+        <FontIcon iconLiteral="mdi2i-image" iconSize="48" styleClass="hero-icon"/>
         <Label text="Gallery" styleClass="hero-title"/>
         <Label text="Sample inventory items and assets" styleClass="hero-subtitle"/>
     </VBox>
     <VBox spacing="16" styleClass="section">
         <padding><Insets top="20" right="40" bottom="20" left="40"/></padding>
         <TilePane hgap="12" vgap="12" prefColumns="4">
-            <VBox styleClass="feature-card" prefWidth="160"><Label text="💻" styleClass="feature-icon"/><Label text="Computer" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 20" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160"><Label text="🖨️" styleClass="feature-icon"/><Label text="Printer" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 5" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160"><Label text="🪑" styleClass="feature-icon"/><Label text="Chair" styleClass="feature-title"/><Label text="Furniture" styleClass="hint"/><Label text="Qty: 15" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160"><Label text="🗂️" styleClass="feature-icon"/><Label text="Desk" styleClass="feature-title"/><Label text="Furniture" styleClass="hint"/><Label text="Qty: 8" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160"><Label text="💻" styleClass="feature-icon"/><Label text="Laptop" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 12" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160"><Label text="📽️" styleClass="feature-icon"/><Label text="Projector" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 3" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160"><Label text="📋" styleClass="feature-icon"/><Label text="Whiteboard" styleClass="feature-title"/><Label text="Office" styleClass="hint"/><Label text="Qty: 6" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160"><Label text="🗄️" styleClass="feature-icon"/><Label text="Cabinet" styleClass="feature-title"/><Label text="Furniture" styleClass="hint"/><Label text="Qty: 4" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2l-laptop" iconSize="32" styleClass="feature-icon"/><Label text="Computer" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 20" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2p-printer" iconSize="32" styleClass="feature-icon"/><Label text="Printer" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 5" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2c-chair-rolling" iconSize="32" styleClass="feature-icon"/><Label text="Chair" styleClass="feature-title"/><Label text="Furniture" styleClass="hint"/><Label text="Qty: 15" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2d-desk" iconSize="32" styleClass="feature-icon"/><Label text="Desk" styleClass="feature-title"/><Label text="Furniture" styleClass="hint"/><Label text="Qty: 8" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2l-laptop" iconSize="32" styleClass="feature-icon"/><Label text="Laptop" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 12" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2p-projector" iconSize="32" styleClass="feature-icon"/><Label text="Projector" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 3" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2w-whiteboard" iconSize="32" styleClass="feature-icon"/><Label text="Whiteboard" styleClass="feature-title"/><Label text="Office" styleClass="hint"/><Label text="Qty: 6" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2c-cabinet-filing" iconSize="32" styleClass="feature-icon"/><Label text="Cabinet" styleClass="feature-title"/><Label text="Furniture" styleClass="hint"/><Label text="Qty: 4" styleClass="card-value"/></VBox>
         </TilePane>
         <HBox spacing="12">
-            <Button text="🏠 Home" onAction="#goHome" styleClass="primary-btn"/>
+            <Button text="Home" onAction="#goHome" styleClass="primary-btn"/>
             <Button text="View Inventory" onAction="#goHome"/>
         </HBox>
     </VBox>
-</VBox>
+</VBox></ScrollPane>
+
+
+
