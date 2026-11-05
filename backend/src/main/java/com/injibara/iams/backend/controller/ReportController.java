@@ -4,11 +4,16 @@ import com.injibara.iams.backend.dto.ItemResponse;
 import com.injibara.iams.backend.service.DashboardService;
 import com.injibara.iams.backend.service.ItemService;
 import com.injibara.iams.backend.service.StockService;
+import com.lowagie.text.Document;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
@@ -85,6 +90,76 @@ public class ReportController {
     @GetMapping("/summary")
     public ResponseEntity<Map<String, Object>> summary() {
         return ResponseEntity.ok(dashboardService.summary());
+    }
+
+    @GetMapping("/inventory/pdf")
+    public ResponseEntity<byte[]> inventoryPdf() {
+        List<ItemResponse> items = itemService.search(null, null, null);
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            Document doc = new Document();
+            PdfWriter.getInstance(doc, baos);
+            doc.open();
+            doc.add(new Paragraph("Inventory Report"));
+            doc.add(new Paragraph("Generated: " + java.time.LocalDateTime.now()));
+            doc.add(new Paragraph(" "));
+            PdfPTable table = new PdfPTable(5);
+            table.addCell("Code");
+            table.addCell("Name");
+            table.addCell("Category");
+            table.addCell("Qty");
+            table.addCell("Min");
+            for (ItemResponse i : items) {
+                table.addCell(i.getItemCode() == null ? "" : i.getItemCode());
+                table.addCell(i.getItemName() == null ? "" : i.getItemName());
+                table.addCell(i.getCategoryName() == null ? "" : i.getCategoryName());
+                table.addCell(String.valueOf(i.getQuantity()));
+                table.addCell(String.valueOf(i.getMinimumStock()));
+            }
+            doc.add(table);
+            doc.close();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_PDF);
+            headers.setContentDispositionFormData("attachment", "inventory_report.pdf");
+            return ResponseEntity.ok().headers(headers).body(baos.toByteArray());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(null);
+        }
+    }
+
+    @GetMapping("/low-stock/pdf")
+    public ResponseEntity<byte[]> lowStockPdf() {
+        List<ItemResponse> items = itemService.lowStock();
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            Document doc = new Document();
+            PdfWriter.getInstance(doc, baos);
+            doc.open();
+            doc.add(new Paragraph("Low Stock Report"));
+            doc.add(new Paragraph("Generated: " + java.time.LocalDateTime.now()));
+            doc.add(new Paragraph(" "));
+            PdfPTable table = new PdfPTable(4);
+            table.addCell("Code");
+            table.addCell("Name");
+            table.addCell("Qty");
+            table.addCell("Min");
+            for (ItemResponse i : items) {
+                table.addCell(i.getItemCode() == null ? "" : i.getItemCode());
+                table.addCell(i.getItemName() == null ? "" : i.getItemName());
+                table.addCell(String.valueOf(i.getQuantity()));
+                table.addCell(String.valueOf(i.getMinimumStock()));
+            }
+            doc.add(table);
+            doc.close();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_PDF);
+            headers.setContentDispositionFormData("attachment", "low_stock_report.pdf");
+            return ResponseEntity.ok().headers(headers).body(baos.toByteArray());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(null);
+        }
     }
 
     private ResponseEntity<byte[]> csvResponse(String filename, String content) {

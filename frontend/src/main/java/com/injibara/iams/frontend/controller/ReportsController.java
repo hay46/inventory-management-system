@@ -10,6 +10,35 @@ public class ReportsController {
 
     @FXML private TextArea summaryArea;
 
+    private void downloadBinary(String path, String defaultName, String ext) {
+        Thread t = new Thread(() -> {
+            try {
+                java.net.http.HttpRequest request = java.net.http.HttpRequest.newBuilder()
+                        .uri(java.net.URI.create("http://localhost:8080" + path))
+                        .header("Authorization", "Bearer " + com.injibara.iams.frontend.model.UserSession.getInstance().getToken())
+                        .GET().build();
+                java.net.http.HttpResponse<byte[]> resp = java.net.http.HttpClient.newHttpClient().send(request, java.net.http.HttpResponse.BodyHandlers.ofByteArray());
+                if (resp.statusCode() == 200) {
+                    byte[] data = resp.body();
+                    Platform.runLater(() -> {
+                        javafx.stage.FileChooser fc = new javafx.stage.FileChooser();
+                        fc.setTitle("Save Report");
+                        fc.getExtensionFilters().add(new javafx.stage.FileChooser.ExtensionFilter(ext.toUpperCase() + " Files", "*." + ext));
+                        fc.setInitialFileName(defaultName);
+                        java.io.File file = fc.showSaveDialog(summaryArea.getScene().getWindow());
+                        if (file != null) {
+                            try { java.nio.file.Files.write(file.toPath(), data); summaryArea.setText("Saved: " + file.getAbsolutePath()); }
+                            catch (Exception e) { summaryArea.setText("Error: " + e.getMessage()); }
+                        }
+                    });
+                } else {
+                    Platform.runLater(() -> summaryArea.setText("Error: HTTP " + resp.statusCode()));
+                }
+            } catch (Exception e) { Platform.runLater(() -> summaryArea.setText("Error: " + e.getMessage())); }
+        });
+        t.setDaemon(true); t.start();
+    }
+
     private void download(String path, String defaultName) {
         Thread t = new Thread(() -> {
             try {
@@ -36,7 +65,9 @@ public class ReportsController {
     }
 
     @FXML public void exportInventory() { download("/api/reports/inventory", "inventory_report.csv"); }
+    @FXML public void exportInventoryPdf() { downloadBinary("/api/reports/inventory/pdf", "inventory_report.pdf", "pdf"); }
     @FXML public void exportLowStock() { download("/api/reports/low-stock", "low_stock_report.csv"); }
+    @FXML public void exportLowStockPdf() { downloadBinary("/api/reports/low-stock/pdf", "low_stock_report.pdf", "pdf"); }
     @FXML public void exportTransactions() { download("/api/reports/transactions", "transaction_report.csv"); }
 
     @FXML

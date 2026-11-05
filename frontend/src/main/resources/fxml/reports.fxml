@@ -11,7 +11,9 @@
     <Label text="Reports" styleClass="view-title"/>
     <HBox spacing="10">
         <Button text="Inventory Report (CSV)" onAction="#exportInventory"/>
+        <Button text="Inventory Report (PDF)" onAction="#exportInventoryPdf"/>
         <Button text="Low Stock Report (CSV)" onAction="#exportLowStock"/>
+        <Button text="Low Stock Report (PDF)" onAction="#exportLowStockPdf"/>
         <Button text="Transaction Report (CSV)" onAction="#exportTransactions"/>
         <Button text="Summary" onAction="#showSummary"/>
     </HBox>
