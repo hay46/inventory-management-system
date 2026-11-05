@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.injibara.iams.frontend.controller.DashboardController"
+      styleClass="view"
+      stylesheets="@/css/app.css">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    <Label text="Dashboard" styleClass="view-title"/>
+    <HBox spacing="16">
+        <VBox styleClass="card" prefWidth="200"><Label text="Total Items" styleClass="card-title"/><Label fx:id="totalItemsLabel" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="200"><Label text="Total Quantity" styleClass="card-title"/><Label fx:id="totalQtyLabel" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="200"><Label text="Low Stock" styleClass="card-title"/><Label fx:id="lowStockLabel" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="200"><Label text="Out of Stock" styleClass="card-title"/><Label fx:id="outOfStockLabel" styleClass="card-value"/></VBox>
+    </HBox>
+    <Label text="Recent Transactions" styleClass="section-title"/>
+    <TableView fx:id="recentTable" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="colTxId" text="ID" prefWidth="60"/>
+            <TableColumn fx:id="colTxItem" text="Item" prefWidth="160"/>
+            <TableColumn fx:id="colTxType" text="Type" prefWidth="100"/>
+            <TableColumn fx:id="colTxQty" text="Qty" prefWidth="80"/>
+            <TableColumn fx:id="colTxDate" text="Date" prefWidth="180"/>
+        </columns>
+    </TableView>
+    <Button text="Refresh" onAction="#refresh"/>
+</VBox>

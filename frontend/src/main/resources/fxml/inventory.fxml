@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.injibara.iams.frontend.controller.InventoryController"
+      styleClass="view"`n      stylesheets="@/css/app.css">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Inventory Items" styleClass="view-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="searchField" promptText="Search by name/code"/>
+        <Button text="Search" onAction="#search"/>
+        <Button text="Add Item" onAction="#showAddDialog" styleClass="primary-btn"/>
+        <Button text="Refresh" onAction="#refresh"/>
+    </HBox>
+    <TableView fx:id="itemTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colCode" text="Code" prefWidth="100"/>
+            <TableColumn fx:id="colName" text="Name" prefWidth="180"/>
+            <TableColumn fx:id="colCategory" text="Category" prefWidth="120"/>
+            <TableColumn fx:id="colLocation" text="Location" prefWidth="120"/>
+            <TableColumn fx:id="colUnit" text="Unit" prefWidth="70"/>
+            <TableColumn fx:id="colQty" text="Qty" prefWidth="70"/>
+            <TableColumn fx:id="colMin" text="Min" prefWidth="70"/>
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="90"/>
+        </columns>
+    </TableView>
+    <HBox spacing="10">
+        <Button text="Edit Selected" onAction="#editSelected"/>
+        <Button text="Delete Selected" onAction="#deleteSelected"/>
+    </HBox>
+</VBox>
+

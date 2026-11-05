@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/iamsdb}
+    username: ${DB_USERNAME:iams_user}
+    password: ${DB_PASSWORD:change_me}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+server:
+  port: ${SERVER_PORT:8080}
