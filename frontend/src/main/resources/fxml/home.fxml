@@ -3,33 +3,89 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="20" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+<VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.injibara.iams.frontend.controller.InfoController"
       styleClass="view" stylesheets="@/css/app.css">
-    <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
-    <Label text="Inventory and Asset Management System" styleClass="title"/>
-    <Label text="IAMS - Injibara University" styleClass="subtitle"/>
-    <Label text="A complete desktop application for managing organizational inventory, equipment, and assets." wrapText="true" maxWidth="600" styleClass="status"/>
-    <HBox spacing="12">
-        <Button text="Get Started (Sign In)" onAction="#goSignIn" styleClass="primary-btn"/>
-        <Button text="Sign Up" onAction="#goSignUp"/>
-        <Button text="Contact Us" onAction="#goContact"/>
-        <Button text="View Services" onAction="#goServices"/>
-    </HBox>
-    <VBox spacing="6" styleClass="card" maxWidth="600">
-        <Label text="Key Features" styleClass="section-title"/>
-        <Label text="• Item registration and management"/>
-        <Label text="• Stock receiving and issuing transactions"/>
-        <Label text="• Low-stock and out-of-stock alerts"/>
-        <Label text="• Transaction history tracking"/>
-        <Label text="• Inventory reports (CSV/PDF)"/>
-        <Label text="• File import and export"/>
-        <Label text="• Role-based user management"/>
+    <!-- Hero Section -->
+    <VBox alignment="CENTER" spacing="16" styleClass="hero" prefHeight="260">
+        <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+        <Label text="📦" styleClass="hero-icon"/>
+        <Label text="Inventory and Asset Management System" styleClass="hero-title"/>
+        <Label text="IAMS — Smart, Secure, and Simple" styleClass="hero-subtitle"/>
+        <Label text="Manage your organization's inventory, equipment, and assets with ease." styleClass="hero-desc" wrapText="true" maxWidth="600"/>
+        <HBox spacing="12" alignment="CENTER">
+            <Button text="🚀 Get Started" onAction="#goSignIn" styleClass="hero-btn"/>
+            <Button text="📝 Sign Up" onAction="#goSignUp" styleClass="hero-btn-outline"/>
+            <Button text="📞 Contact" onAction="#goContact" styleClass="hero-btn-outline"/>
+        </HBox>
     </VBox>
-    <HBox spacing="16">
-        <VBox styleClass="card" prefWidth="160"><Label text="Items" styleClass="card-title"/><Label text="Manage" styleClass="card-value"/></VBox>
-        <VBox styleClass="card" prefWidth="160"><Label text="Stock" styleClass="card-title"/><Label text="Track" styleClass="card-value"/></VBox>
-        <VBox styleClass="card" prefWidth="160"><Label text="Reports" styleClass="card-title"/><Label text="Export" styleClass="card-value"/></VBox>
-        <VBox styleClass="card" prefWidth="160"><Label text="Users" styleClass="card-title"/><Label text="Secure" styleClass="card-value"/></VBox>
+
+    <!-- Features Section -->
+    <VBox spacing="16" styleClass="section">
+        <padding><Insets top="30" right="40" bottom="20" left="40"/></padding>
+        <Label text="✨ Key Features" styleClass="section-title"/>
+        <TilePane hgap="16" vgap="16" prefColumns="4">
+            <VBox styleClass="feature-card" prefWidth="200">
+                <Label text="📋" styleClass="feature-icon"/>
+                <Label text="Item Management" styleClass="feature-title"/>
+                <Label text="Register and manage inventory items" wrapText="true" maxWidth="180"/>
+            </VBox>
+            <VBox styleClass="feature-card" prefWidth="200">
+                <Label text="📥" styleClass="feature-icon"/>
+                <Label text="Stock Receiving" styleClass="feature-title"/>
+                <Label text="Record incoming stock transactions" wrapText="true" maxWidth="180"/>
+            </VBox>
+            <VBox styleClass="feature-card" prefWidth="200">
+                <Label text="📤" styleClass="feature-icon"/>
+                <Label text="Stock Issuing" styleClass="feature-title"/>
+                <Label text="Issue items with validation" wrapText="true" maxWidth="180"/>
+            </VBox>
+            <VBox styleClass="feature-card" prefWidth="200">
+                <Label text="⚠️" styleClass="feature-icon"/>
+                <Label text="Low-Stock Alerts" styleClass="feature-title"/>
+                <Label text="Automatic low-stock detection" wrapText="true" maxWidth="180"/>
+            </VBox>
+            <VBox styleClass="feature-card" prefWidth="200">
+                <Label text="📊" styleClass="feature-icon"/>
+                <Label text="Reports" styleClass="feature-title"/>
+                <Label text="Export CSV and PDF reports" wrapText="true" maxWidth="180"/>
+            </VBox>
+            <VBox styleClass="feature-card" prefWidth="200">
+                <Label text="📁" styleClass="feature-icon"/>
+                <Label text="File Import/Export" styleClass="feature-title"/>
+                <Label text="Import and export inventory data" wrapText="true" maxWidth="180"/>
+            </VBox>
+            <VBox styleClass="feature-card" prefWidth="200">
+                <Label text="🔐" styleClass="feature-icon"/>
+                <Label text="Secure Access" styleClass="feature-title"/>
+                <Label text="Role-based authentication" wrapText="true" maxWidth="180"/>
+            </VBox>
+            <VBox styleClass="feature-card" prefWidth="200">
+                <Label text="📈" styleClass="feature-icon"/>
+                <Label text="Dashboard" styleClass="feature-title"/>
+                <Label text="Live statistics and analytics" wrapText="true" maxWidth="180"/>
+            </VBox>
+        </TilePane>
+    </VBox>
+
+    <!-- Stats Section -->
+    <HBox spacing="16" alignment="CENTER" styleClass="section">
+        <padding><Insets top="10" right="40" bottom="30" left="40"/></padding>
+        <VBox styleClass="stat-card" prefWidth="180" alignment="CENTER">
+            <Label text="100%" styleClass="stat-number"/>
+            <Label text="Accurate" styleClass="stat-label"/>
+        </VBox>
+        <VBox styleClass="stat-card" prefWidth="180" alignment="CENTER">
+            <Label text="24/7" styleClass="stat-number"/>
+            <Label text="Available" styleClass="stat-label"/>
+        </VBox>
+        <VBox styleClass="stat-card" prefWidth="180" alignment="CENTER">
+            <Label text="Secure" styleClass="stat-number"/>
+            <Label text="Protected" styleClass="stat-label"/>
+        </VBox>
+        <VBox styleClass="stat-card" prefWidth="180" alignment="CENTER">
+            <Label text="Fast" styleClass="stat-number"/>
+            <Label text="Responsive" styleClass="stat-label"/>
+        </VBox>
     </HBox>
 </VBox>

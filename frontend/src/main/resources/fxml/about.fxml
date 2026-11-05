@@ -3,32 +3,38 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="16" xmlns:fx="http://javafx.com/fxml"
+<VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.injibara.iams.frontend.controller.InfoController"
       styleClass="view" stylesheets="@/css/app.css">
-    <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
-    <Label text="About IAMS" styleClass="view-title"/>
-    <Label text="Inventory and Asset Management System (IAMS)" styleClass="section-title"/>
-    <Label text="A desktop application developed for Injibara University's Advanced Programming and Software Architecture course." wrapText="true" maxWidth="700"/>
-    <VBox spacing="6" styleClass="card" maxWidth="700">
-        <Label text="Project Information" styleClass="section-title"/>
-        <Label text="Institution: Injibara University"/>
-        <Label text="College: College of Engineering and Technology"/>
-        <Label text="Department: Software Engineering"/>
-        <Label text="Course: Advanced Programming and Software Architecture and Design"/>
-        <Label text="Technology: JavaFX, Spring Boot, PostgreSQL/H2, REST APIs, JWT"/>
+    <VBox alignment="CENTER" spacing="10" styleClass="hero" prefHeight="180">
+        <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
+        <Label text="ℹ️" styleClass="hero-icon"/>
+        <Label text="About IAMS" styleClass="hero-title"/>
+        <Label text="Learn more about the system and its objectives" styleClass="hero-subtitle"/>
     </VBox>
-    <VBox spacing="6" styleClass="card" maxWidth="700">
-        <Label text="Objectives" styleClass="section-title"/>
-        <Label text="• Improve inventory accuracy and accountability"/>
-        <Label text="• Provide secure role-based access"/>
-        <Label text="• Automate stock calculations and alerts"/>
-        <Label text="• Generate inventory reports"/>
-        <Label text="• Demonstrate advanced Java programming concepts"/>
+    <VBox spacing="16" styleClass="section">
+        <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
+        <VBox spacing="6" styleClass="card" maxWidth="700">
+            <Label text="Project Information" styleClass="section-title"/>
+            <Label text="Institution: Injibara University"/>
+            <Label text="College: College of Engineering and Technology"/>
+            <Label text="Department: Software Engineering"/>
+            <Label text="Course: Advanced Programming and Software Architecture"/>
+            <Label text="Technology: JavaFX, Spring Boot, PostgreSQL/H2, REST APIs, JWT"/>
+            <Label text="Version: 1.0.0" styleClass="hint"/>
+        </VBox>
+        <VBox spacing="6" styleClass="card" maxWidth="700">
+            <Label text="Objectives" styleClass="section-title"/>
+            <Label text="• Improve inventory accuracy and accountability"/>
+            <Label text="• Provide secure role-based access"/>
+            <Label text="• Automate stock calculations and alerts"/>
+            <Label text="• Generate inventory reports (CSV/PDF)"/>
+            <Label text="• Demonstrate advanced Java programming concepts"/>
+        </VBox>
+        <HBox spacing="12">
+            <Button text="🏠 Home" onAction="#goHome" styleClass="primary-btn"/>
+            <Button text="🛠 Services" onAction="#goServices"/>
+            <Button text="📞 Contact" onAction="#goContact"/>
+        </HBox>
     </VBox>
-    <HBox spacing="12">
-        <Button text="Back to Home" onAction="#goHome"/>
-        <Button text="View Services" onAction="#goServices"/>
-        <Button text="Contact Us" onAction="#goContact"/>
-    </HBox>
 </VBox>

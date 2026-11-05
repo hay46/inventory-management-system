@@ -3,29 +3,36 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="16" xmlns:fx="http://javafx.com/fxml"
+<VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.injibara.iams.frontend.controller.InfoController"
       styleClass="view" stylesheets="@/css/app.css">
-    <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
-    <Label text="Contact" styleClass="view-title"/>
-    <VBox spacing="6" styleClass="card" maxWidth="700">
-        <Label text="Contact Information" styleClass="section-title"/>
-        <Label text="Email: haymanotebabu2@gmail.com"/>
-        <Label text="Institution: Injibara University"/>
-        <Label text="College: College of Engineering and Technology"/>
-        <Label text="Department: Software Engineering"/>
-        <Label text="Course: Advanced Programming and Software Architecture"/>
-        <Label text="WhatsApp: available via the WhatsApp button in the header"/>
+    <VBox alignment="CENTER" spacing="10" styleClass="hero" prefHeight="160">
+        <padding><Insets top="20" right="40" bottom="20" left="40"/></padding>
+        <Label text="📞" styleClass="hero-icon"/>
+        <Label text="Contact Us" styleClass="hero-title"/>
+        <Label text="Get in touch with the IAMS team" styleClass="hero-subtitle"/>
     </VBox>
-    <VBox spacing="8" styleClass="card" maxWidth="700">
-        <Label text="Send a Message" styleClass="section-title"/>
-        <TextField promptText="Your Name"/>
-        <TextField promptText="Your Email"/>
-        <TextArea promptText="Your Message" prefRowCount="4"/>
-        <Button text="Send" styleClass="primary-btn"/>
+    <VBox spacing="16" styleClass="section">
+        <padding><Insets top="20" right="40" bottom="20" left="40"/></padding>
+        <VBox spacing="6" styleClass="card" maxWidth="700">
+            <Label text="Contact Information" styleClass="section-title"/>
+            <Label text="📧 Email: haymanotebabu2@gmail.com"/>
+            <Label text="🏫 Institution: Injibara University"/>
+            <Label text="🏛️ College: College of Engineering and Technology"/>
+            <Label text="📚 Department: Software Engineering"/>
+            <Label text="📖 Course: Advanced Programming and Software Architecture"/>
+            <Label text="💬 WhatsApp: use the WhatsApp button in the header"/>
+        </VBox>
+        <VBox spacing="8" styleClass="card" maxWidth="700">
+            <Label text="Send a Message" styleClass="section-title"/>
+            <TextField promptText="Your Name"/>
+            <TextField promptText="Your Email"/>
+            <TextArea promptText="Your Message" prefRowCount="4"/>
+            <Button text="Send Message" styleClass="primary-btn"/>
+        </VBox>
+        <HBox spacing="12">
+            <Button text="🏠 Home" onAction="#goHome" styleClass="primary-btn"/>
+            <Button text="💬 WhatsApp" onAction="#goHome"/>
+        </HBox>
     </VBox>
-    <HBox spacing="12">
-        <Button text="Back to Home" onAction="#goHome"/>
-        <Button text="Open WhatsApp" onAction="#goHome"/>
-    </HBox>
 </VBox>
