@@ -58,10 +58,17 @@
 .header .whatsapp-btn:hover { -fx-background-color: #128C7E; }
 .header .menu-button .label { -fx-text-fill: white; }
 .header MenuButton {
-    -fx-background-color: transparent; -fx-text-fill: white;
-    -fx-font-size: 13px; -fx-padding: 6 12; -fx-cursor: hand;
+    -fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-weight: bold;
+    -fx-font-size: 13px; -fx-padding: 6 14; -fx-cursor: hand;
+    -fx-background-radius: 4;
 }
-.header MenuButton:hover { -fx-background-color: rgba(255,255,255,0.15); }
+.header MenuButton:hover { -fx-background-color: #d35400; }
+.header MenuButton .label { -fx-text-fill: white; }
+.header .dark-toggle {
+    -fx-background-color: #34495e; -fx-text-fill: #f1c40f;
+    -fx-font-weight: bold; -fx-background-radius: 4;
+    -fx-padding: 6 10; -fx-cursor: hand;
+}
 .header Separator { -fx-background-color: rgba(255,255,255,0.3); }
 
 /* Footer */
@@ -139,3 +146,19 @@ TextField:focused, PasswordField:focused, TextArea:focused, ComboBox:focused {
 
 /* TilePane cards */
 .tile-pane { -fx-hgap: 12; -fx-vgap: 12; }
+
+/* Dark mode */
+.dark .main-root, .dark.main-root { -fx-background-color: #1a1a2e; }
+.dark .content, .dark .view { -fx-background-color: #16213e; }
+.dark .view-title { -fx-text-fill: #e94560; }
+.dark Label { -fx-text-fill: #eaeaea; }
+.dark .card { -fx-background-color: #0f3460; -fx-border-color: #1a1a2e; }
+.dark .card-title { -fx-text-fill: #bdc3c7; }
+.dark .card-value { -fx-text-fill: #e94560; }
+.dark TextField, .dark PasswordField, .dark TextArea, .dark ComboBox {
+    -fx-background-color: #0f3460; -fx-text-fill: #eaeaea; -fx-border-color: #1a1a2e;
+}
+.dark TableView { -fx-background-color: #0f3460; }
+.dark TableView .table-row-cell { -fx-background-color: #0f3460; -fx-text-fill: #eaeaea; }
+.dark TableView .table-row-cell:odd { -fx-background-color: #16213e; }
+.dark Button { -fx-background-color: #0f3460; -fx-text-fill: #eaeaea; }

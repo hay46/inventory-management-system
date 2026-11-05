@@ -33,6 +33,7 @@
                 <Button text="Sign In" onAction="#showSignIn" styleClass="nav-btn"/>
                 <Button text="Sign Up" onAction="#showSignUp" styleClass="primary-btn"/>
                 <Button text="WhatsApp" onAction="#openWhatsApp" styleClass="whatsapp-btn"/>
+                <Button text="Dark" onAction="#toggleDarkMode" styleClass="dark-toggle"/>
             </HBox>
         </VBox>
     </top>
