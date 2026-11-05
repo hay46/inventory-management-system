@@ -19,6 +19,7 @@
             <Button text="Issue Stock" onAction="#showIssue" styleClass="nav-btn"/>
             <Button text="Low Stock" onAction="#showLowStock" styleClass="nav-btn"/>
             <Button text="Transactions" onAction="#showTransactions" styleClass="nav-btn"/>
+            <Button text="Reports" onAction="#showReports" styleClass="nav-btn"/>
             <Region VBox.vgrow="ALWAYS"/>
             <Button text="Logout" onAction="#handleLogout" styleClass="logout-btn"/>
         </VBox>

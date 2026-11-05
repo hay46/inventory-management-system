@@ -216,6 +216,52 @@ public class InventoryController {
         t.setDaemon(true); t.start();
     }
 
+    @FXML
+    public void importCsv() {
+        javafx.stage.FileChooser fc = new javafx.stage.FileChooser();
+        fc.setTitle("Import CSV");
+        fc.getExtensionFilters().add(new javafx.stage.FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        java.io.File file = fc.showOpenDialog(itemTable.getScene().getWindow());
+        if (file == null) return;
+        Thread t = new Thread(() -> {
+            try {
+                String boundary = "----IAMSBOUNDARY" + System.currentTimeMillis();
+                byte[] fileBytes = java.nio.file.Files.readAllBytes(file.toPath());
+                String filename = file.getName();
+                StringBuilder head = new StringBuilder();
+                head.append("--").append(boundary).append("\r\n");
+                head.append("Content-Disposition: form-data; name=\"file\"; filename=\"").append(filename).append("\"\r\n");
+                head.append("Content-Type: text/csv\r\n\r\n");
+                String tail = "\r\n--" + boundary + "--\r\n";
+                byte[] headBytes = head.toString().getBytes(java.nio.charset.StandardCharsets.UTF_8);
+                byte[] tailBytes = tail.getBytes(java.nio.charset.StandardCharsets.UTF_8);
+                byte[] body = new byte[headBytes.length + fileBytes.length + tailBytes.length];
+                System.arraycopy(headBytes, 0, body, 0, headBytes.length);
+                System.arraycopy(fileBytes, 0, body, headBytes.length, fileBytes.length);
+                System.arraycopy(tailBytes, 0, body, headBytes.length + fileBytes.length, tailBytes.length);
+
+                java.net.http.HttpRequest request = java.net.http.HttpRequest.newBuilder()
+                        .uri(java.net.URI.create("http://localhost:8080/api/items/import"))
+                        .header("Content-Type", "multipart/form-data; boundary=" + boundary)
+                        .header("Authorization", "Bearer " + com.injibara.iams.frontend.model.UserSession.getInstance().getToken())
+                        .POST(java.net.http.HttpRequest.BodyPublishers.ofByteArray(body))
+                        .build();
+                java.net.http.HttpResponse<String> resp = java.net.http.HttpClient.newHttpClient().send(request, java.net.http.HttpResponse.BodyHandlers.ofString());
+                Platform.runLater(() -> {
+                    if (resp.statusCode() == 200) {
+                        showAlert("Import Result", resp.body());
+                        refresh();
+                    } else {
+                        showAlert("Error", resp.body());
+                    }
+                });
+            } catch (Exception e) {
+                Platform.runLater(() -> showAlert("Error", e.getMessage()));
+            }
+        });
+        t.setDaemon(true); t.start();
+    }
+
     private void showAlert(String title, String msg) {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setTitle(title); a.setHeaderText(null); a.setContentText(msg); a.showAndWait();

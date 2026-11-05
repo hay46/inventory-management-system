@@ -15,6 +15,7 @@
         <Button text="Add Item" onAction="#showAddDialog" styleClass="primary-btn"/>
         <Button text="Refresh" onAction="#refresh"/>
         <Button text="Export CSV" onAction="#exportCsv"/>
+        <Button text="Import CSV" onAction="#importCsv"/>
     </HBox>
     <TableView fx:id="itemTable" VBox.vgrow="ALWAYS">
         <columns>

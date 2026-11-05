@@ -9,18 +9,26 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/items")
 public class ItemController {
 
     private final ItemService itemService;
+    private final com.injibara.iams.backend.repository.ItemRepository itemRepository;
 
-    public ItemController(ItemService itemService) {
+    public ItemController(ItemService itemService, com.injibara.iams.backend.repository.ItemRepository itemRepository) {
         this.itemService = itemService;
+        this.itemRepository = itemRepository;
     }
 
     @GetMapping
@@ -62,6 +70,49 @@ public class ItemController {
         headers.setContentType(MediaType.parseMediaType("text/csv"));
         headers.setContentDispositionFormData("attachment", "inventory.csv");
         return ResponseEntity.ok().headers(headers).body(bytes);
+    }
+
+    @PostMapping("/import")
+    @PreAuthorize("hasAnyRole('ADMINISTRATOR','INVENTORY_MANAGER')")
+    public ResponseEntity<Map<String, Object>> importCsv(@RequestParam("file") MultipartFile file) {
+        int created = 0, skipped = 0, errors = 0;
+        List<String> messages = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8))) {
+            String header = br.readLine(); // skip header
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.trim().isEmpty()) continue;
+                String[] cols = line.split(",", -1);
+                // expected: itemCode,itemName,categoryName,locationName,unit,quantity,minimumStock
+                if (cols.length < 2) { errors++; messages.add("Bad row: " + line); continue; }
+                try {
+                    ItemRequest req = new ItemRequest();
+                    req.setItemCode(cols[0].trim());
+                    req.setItemName(cols[1].trim());
+                    if (cols.length > 2 && !cols[2].trim().isEmpty()) {
+                        // find category by name (create if missing)
+                    }
+                    req.setUnit(cols.length > 2 && !cols[2].trim().isEmpty() ? cols[2].trim() : "Piece");
+                    req.setQuantity(cols.length > 3 && !cols[3].trim().isEmpty() ? Integer.parseInt(cols[3].trim()) : 0);
+                    req.setMinimumStock(cols.length > 4 && !cols[4].trim().isEmpty() ? Integer.parseInt(cols[4].trim()) : 0);
+                    if (itemRepository.existsByItemCode(req.getItemCode())) { skipped++; continue; }
+                    itemService.create(req);
+                    created++;
+                } catch (Exception e) {
+                    errors++;
+                    messages.add("Row error: " + line + " -> " + e.getMessage());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body(Map.of("message", "Failed to read file: " + e.getMessage()));
+        }
+        Map<String, Object> result = new HashMap<>();
+        result.put("created", created);
+        result.put("skipped", skipped);
+        result.put("errors", errors);
+        result.put("messages", messages);
+        return ResponseEntity.ok(result);
     }
 
     private String escape(String s) {

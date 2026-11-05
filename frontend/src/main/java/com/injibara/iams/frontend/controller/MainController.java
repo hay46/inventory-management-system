@@ -35,6 +35,7 @@ public class MainController {
     @FXML public void showIssue() { load("issue.fxml"); }
     @FXML public void showLowStock() { load("lowstock.fxml"); }
     @FXML public void showTransactions() { load("transactions.fxml"); }
+    @FXML public void showReports() { load("reports.fxml"); }
 
     @FXML
     private void handleLogout() throws Exception {

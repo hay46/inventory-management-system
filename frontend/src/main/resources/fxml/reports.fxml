@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.injibara.iams.frontend.controller.ReportsController"
+      styleClass="view"
+      stylesheets="@/css/app.css">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    <Label text="Reports" styleClass="view-title"/>
+    <HBox spacing="10">
+        <Button text="Inventory Report (CSV)" onAction="#exportInventory"/>
+        <Button text="Low Stock Report (CSV)" onAction="#exportLowStock"/>
+        <Button text="Transaction Report (CSV)" onAction="#exportTransactions"/>
+        <Button text="Summary" onAction="#showSummary"/>
+    </HBox>
+    <TextArea fx:id="summaryArea" VBox.vgrow="ALWAYS" editable="false" styleClass="status"/>
+</VBox>
