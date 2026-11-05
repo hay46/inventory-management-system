@@ -6,7 +6,7 @@
 <VBox spacing="20" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.injibara.iams.frontend.controller.InfoController"
       styleClass="view" stylesheets="@/css/app.css">
-    <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+    <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
     <Label text="Inventory and Asset Management System" styleClass="title"/>
     <Label text="IAMS - Injibara University" styleClass="subtitle"/>
     <Label text="A complete desktop application for managing organizational inventory, equipment, and assets." wrapText="true" maxWidth="600" styleClass="status"/>
@@ -14,6 +14,22 @@
         <Button text="Get Started (Sign In)" onAction="#goSignIn" styleClass="primary-btn"/>
         <Button text="Sign Up" onAction="#goSignUp"/>
         <Button text="Contact Us" onAction="#goContact"/>
+        <Button text="View Services" onAction="#goServices"/>
     </HBox>
-    <Label text="Features: Item registration, stock receiving/issuing, low-stock alerts, reports, file import/export." wrapText="true" maxWidth="600"/>
+    <VBox spacing="6" styleClass="card" maxWidth="600">
+        <Label text="Key Features" styleClass="section-title"/>
+        <Label text="• Item registration and management"/>
+        <Label text="• Stock receiving and issuing transactions"/>
+        <Label text="• Low-stock and out-of-stock alerts"/>
+        <Label text="• Transaction history tracking"/>
+        <Label text="• Inventory reports (CSV/PDF)"/>
+        <Label text="• File import and export"/>
+        <Label text="• Role-based user management"/>
+    </VBox>
+    <HBox spacing="16">
+        <VBox styleClass="card" prefWidth="160"><Label text="Items" styleClass="card-title"/><Label text="Manage" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="160"><Label text="Stock" styleClass="card-title"/><Label text="Track" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="160"><Label text="Reports" styleClass="card-title"/><Label text="Export" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="160"><Label text="Users" styleClass="card-title"/><Label text="Secure" styleClass="card-value"/></VBox>
+    </HBox>
 </VBox>

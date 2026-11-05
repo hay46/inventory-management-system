@@ -12,13 +12,17 @@
     <Label text="Inventory and Asset Management System" styleClass="title"/>
     <Label text="Injibara University - IAMS" styleClass="subtitle"/>
 
-    <VBox spacing="8" maxWidth="320">
+    <VBox spacing="8" maxWidth="320" styleClass="card">
+        <Label text="Sign In" styleClass="section-title"/>
         <Label text="Username"/>
         <TextField fx:id="usernameField" promptText="Enter username"/>
         <Label text="Password"/>
         <PasswordField fx:id="passwordField" promptText="Enter password"/>
         <Button text="Login" onAction="#handleLogin" styleClass="primary-btn" maxWidth="Infinity"/>
         <Label fx:id="statusLabel" styleClass="status"/>
+        <Separator/>
+        <Label text="Don't have an account?" styleClass="hint"/>
+        <Button text="Sign Up" onAction="#goSignUp" maxWidth="Infinity"/>
     </VBox>
 
     <Label text="Default: admin / admin123" styleClass="hint"/>

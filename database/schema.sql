@@ -1,5 +1,5 @@
--- IAMS Database Schema (PostgreSQL)
--- Run this script to create the database tables.
+ -- IAMS Database Schema (PostgreSQL)
+--Run this script to create the database tables.
 
 CREATE TABLE IF NOT EXISTS roles (
     id BIGSERIAL PRIMARY KEY,

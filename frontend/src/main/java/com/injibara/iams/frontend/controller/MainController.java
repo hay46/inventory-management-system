@@ -22,6 +22,7 @@ public class MainController {
     public void initialize() {
         InfoController.setMain(this);
         SignupController.setMain(this);
+        LoginController.setMain(this);
         showHome();
     }
 

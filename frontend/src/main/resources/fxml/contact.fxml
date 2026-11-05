@@ -8,9 +8,24 @@
       styleClass="view" stylesheets="@/css/app.css">
     <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
     <Label text="Contact" styleClass="view-title"/>
-    <Label text="Email: haymanotebabu2@gmail.com"/>
-    <Label text="Institution: Injibara University, College of Engineering and Technology, Department of Software Engineering"/>
-    <Label text="WhatsApp support available via the WhatsApp button in the header."/>
-    <Button text="Open WhatsApp" onAction="#goHome"/>
-    <Button text="Back to Home" onAction="#goHome"/>
+    <VBox spacing="6" styleClass="card" maxWidth="700">
+        <Label text="Contact Information" styleClass="section-title"/>
+        <Label text="Email: haymanotebabu2@gmail.com"/>
+        <Label text="Institution: Injibara University"/>
+        <Label text="College: College of Engineering and Technology"/>
+        <Label text="Department: Software Engineering"/>
+        <Label text="Course: Advanced Programming and Software Architecture"/>
+        <Label text="WhatsApp: available via the WhatsApp button in the header"/>
+    </VBox>
+    <VBox spacing="8" styleClass="card" maxWidth="700">
+        <Label text="Send a Message" styleClass="section-title"/>
+        <TextField promptText="Your Name"/>
+        <TextField promptText="Your Email"/>
+        <TextArea promptText="Your Message" prefRowCount="4"/>
+        <Button text="Send" styleClass="primary-btn"/>
+    </VBox>
+    <HBox spacing="12">
+        <Button text="Back to Home" onAction="#goHome"/>
+        <Button text="Open WhatsApp" onAction="#goHome"/>
+    </HBox>
 </VBox>

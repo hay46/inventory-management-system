@@ -8,11 +8,19 @@
       styleClass="view" stylesheets="@/css/app.css">
     <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
     <Label text="Sign Up" styleClass="view-title"/>
-    <TextField fx:id="usernameField" promptText="Username"/>
-    <PasswordField fx:id="passwordField" promptText="Password"/>
-    <TextField fx:id="fullNameField" promptText="Full Name"/>
-    <TextField fx:id="emailField" promptText="Email"/>
-    <Button text="Register" onAction="#handleRegister" styleClass="primary-btn"/>
-    <Label fx:id="statusLabel" styleClass="status"/>
+    <Label text="Create a new account to access IAMS."/>
+    <VBox spacing="8" styleClass="card" maxWidth="400">
+        <Label text="Registration Form" styleClass="section-title"/>
+        <TextField fx:id="usernameField" promptText="Username"/>
+        <PasswordField fx:id="passwordField" promptText="Password"/>
+        <TextField fx:id="fullNameField" promptText="Full Name"/>
+        <TextField fx:id="emailField" promptText="Email"/>
+        <Button text="Register" onAction="#handleRegister" styleClass="primary-btn" maxWidth="Infinity"/>
+        <Label fx:id="statusLabel" styleClass="status"/>
+    </VBox>
+    <VBox spacing="6" styleClass="card" maxWidth="400">
+        <Label text="Already have an account?" styleClass="section-title"/>
+        <Button text="Sign In" onAction="#goSignIn" styleClass="nav-btn"/>
+    </VBox>
     <Button text="Back to Home" onAction="#goHome"/>
 </VBox>

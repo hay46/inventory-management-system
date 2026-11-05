@@ -55,4 +55,5 @@ public class SignupController {
     }
 
     public void goHome() { if (main != null) main.showHome(); }
+    public void goSignIn() { if (main != null) main.showSignIn(); }
 }

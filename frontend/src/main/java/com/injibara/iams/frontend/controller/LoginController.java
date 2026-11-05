@@ -16,6 +16,11 @@ public class LoginController {
     @FXML private PasswordField passwordField;
     @FXML private Label statusLabel;
 
+    private static MainController main;
+    public static void setMain(MainController m) { main = m; }
+
+    public void goSignUp() { if (main != null) main.showSignUp(); }
+
     @FXML
     private void handleLogin() {
         String u = usernameField.getText().trim();

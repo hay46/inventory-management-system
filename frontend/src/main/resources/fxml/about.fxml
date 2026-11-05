@@ -8,8 +8,27 @@
       styleClass="view" stylesheets="@/css/app.css">
     <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
     <Label text="About IAMS" styleClass="view-title"/>
-    <Label text="Inventory and Asset Management System (IAMS) is a desktop application developed for Injibara University's Advanced Programming and Software Architecture course." wrapText="true" maxWidth="700"/>
-    <Label text="It helps organizations register inventory items, track stock receiving and issuing, monitor low-stock levels, and generate reports." wrapText="true" maxWidth="700"/>
-    <Label text="Technology: JavaFX (frontend), Spring Boot (backend), PostgreSQL/H2 (database), REST APIs, JWT authentication." wrapText="true" maxWidth="700"/>
-    <Button text="Back to Home" onAction="#goHome"/>
+    <Label text="Inventory and Asset Management System (IAMS)" styleClass="section-title"/>
+    <Label text="A desktop application developed for Injibara University's Advanced Programming and Software Architecture course." wrapText="true" maxWidth="700"/>
+    <VBox spacing="6" styleClass="card" maxWidth="700">
+        <Label text="Project Information" styleClass="section-title"/>
+        <Label text="Institution: Injibara University"/>
+        <Label text="College: College of Engineering and Technology"/>
+        <Label text="Department: Software Engineering"/>
+        <Label text="Course: Advanced Programming and Software Architecture and Design"/>
+        <Label text="Technology: JavaFX, Spring Boot, PostgreSQL/H2, REST APIs, JWT"/>
+    </VBox>
+    <VBox spacing="6" styleClass="card" maxWidth="700">
+        <Label text="Objectives" styleClass="section-title"/>
+        <Label text="• Improve inventory accuracy and accountability"/>
+        <Label text="• Provide secure role-based access"/>
+        <Label text="• Automate stock calculations and alerts"/>
+        <Label text="• Generate inventory reports"/>
+        <Label text="• Demonstrate advanced Java programming concepts"/>
+    </VBox>
+    <HBox spacing="12">
+        <Button text="Back to Home" onAction="#goHome"/>
+        <Button text="View Services" onAction="#goServices"/>
+        <Button text="Contact Us" onAction="#goContact"/>
+    </HBox>
 </VBox>

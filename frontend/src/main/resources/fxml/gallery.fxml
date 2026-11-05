@@ -8,12 +8,19 @@
       styleClass="view" stylesheets="@/css/app.css">
     <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
     <Label text="Gallery" styleClass="view-title"/>
-    <TilePane hgap="10" vgap="10" prefColumns="4">
-        <VBox styleClass="card" prefWidth="150"><Label text="Item 1" styleClass="card-title"/><Label text="Computer" styleClass="card-value"/></VBox>
-        <VBox styleClass="card" prefWidth="150"><Label text="Item 2" styleClass="card-title"/><Label text="Printer" styleClass="card-value"/></VBox>
-        <VBox styleClass="card" prefWidth="150"><Label text="Item 3" styleClass="card-title"/><Label text="Chair" styleClass="card-value"/></VBox>
-        <VBox styleClass="card" prefWidth="150"><Label text="Item 4" styleClass="card-title"/><Label text="Desk" styleClass="card-value"/></VBox>
+    <Label text="Sample inventory items and assets."/>
+    <TilePane hgap="12" vgap="12" prefColumns="4">
+        <VBox styleClass="card" prefWidth="160"><Label text="Computer" styleClass="card-title"/><Label text="Electronics" styleClass="status"/><Label text="Qty: 20" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="160"><Label text="Printer" styleClass="card-title"/><Label text="Electronics" styleClass="status"/><Label text="Qty: 5" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="160"><Label text="Chair" styleClass="card-title"/><Label text="Furniture" styleClass="status"/><Label text="Qty: 15" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="160"><Label text="Desk" styleClass="card-title"/><Label text="Furniture" styleClass="status"/><Label text="Qty: 8" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="160"><Label text="Laptop" styleClass="card-title"/><Label text="Electronics" styleClass="status"/><Label text="Qty: 12" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="160"><Label text="Projector" styleClass="card-title"/><Label text="Electronics" styleClass="status"/><Label text="Qty: 3" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="160"><Label text="Whiteboard" styleClass="card-title"/><Label text="Office" styleClass="status"/><Label text="Qty: 6" styleClass="card-value"/></VBox>
+        <VBox styleClass="card" prefWidth="160"><Label text="Cabinet" styleClass="card-title"/><Label text="Furniture" styleClass="status"/><Label text="Qty: 4" styleClass="card-value"/></VBox>
     </TilePane>
-    <Label text="Gallery shows sample inventory items. Connect to real data via the Inventory module."/>
-    <Button text="Back to Home" onAction="#goHome"/>
+    <HBox spacing="12">
+        <Button text="Back to Home" onAction="#goHome"/>
+        <Button text="View Inventory" onAction="#goHome" styleClass="primary-btn"/>
+    </HBox>
 </VBox>
