@@ -8,7 +8,7 @@
       styleClass="view">
     <VBox alignment="CENTER" spacing="10" styleClass="hero" prefHeight="160">
         <padding><Insets top="20" right="40" bottom="20" left="40"/></padding>
-        <FontIcon iconLiteral="mdi2p-phone" iconSize="48" styleClass="hero-icon"/>
+        <FontIcon iconLiteral="mdi2-phone" iconSize="48" styleClass="hero-icon"/>
         <Label text="Contact Us" styleClass="hero-title"/>
         <Label text="Get in touch with the IAMS team" styleClass="hero-subtitle"/>
     </VBox>
@@ -36,6 +36,8 @@
         </HBox>
     </VBox>
 </VBox></ScrollPane>
+
+
 
 
 

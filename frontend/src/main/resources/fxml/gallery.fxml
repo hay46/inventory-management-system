@@ -8,21 +8,21 @@
       styleClass="view">
     <VBox alignment="CENTER" spacing="10" styleClass="hero" prefHeight="160">
         <padding><Insets top="20" right="40" bottom="20" left="40"/></padding>
-        <FontIcon iconLiteral="mdi2i-image" iconSize="48" styleClass="hero-icon"/>
+        <FontIcon iconLiteral="mdi2-image" iconSize="48" styleClass="hero-icon"/>
         <Label text="Gallery" styleClass="hero-title"/>
         <Label text="Sample inventory items and assets" styleClass="hero-subtitle"/>
     </VBox>
     <VBox spacing="16" styleClass="section">
         <padding><Insets top="20" right="40" bottom="20" left="40"/></padding>
         <TilePane hgap="12" vgap="12" prefColumns="4">
-            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2l-laptop" iconSize="32" styleClass="feature-icon"/><Label text="Computer" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 20" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2p-printer" iconSize="32" styleClass="feature-icon"/><Label text="Printer" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 5" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2c-chair-rolling" iconSize="32" styleClass="feature-icon"/><Label text="Chair" styleClass="feature-title"/><Label text="Furniture" styleClass="hint"/><Label text="Qty: 15" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2d-desk" iconSize="32" styleClass="feature-icon"/><Label text="Desk" styleClass="feature-title"/><Label text="Furniture" styleClass="hint"/><Label text="Qty: 8" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2l-laptop" iconSize="32" styleClass="feature-icon"/><Label text="Laptop" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 12" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2p-projector" iconSize="32" styleClass="feature-icon"/><Label text="Projector" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 3" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2w-whiteboard" iconSize="32" styleClass="feature-icon"/><Label text="Whiteboard" styleClass="feature-title"/><Label text="Office" styleClass="hint"/><Label text="Qty: 6" styleClass="card-value"/></VBox>
-            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2c-cabinet-filing" iconSize="32" styleClass="feature-icon"/><Label text="Cabinet" styleClass="feature-title"/><Label text="Furniture" styleClass="hint"/><Label text="Qty: 4" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2-laptop" iconSize="32" styleClass="feature-icon"/><Label text="Computer" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 20" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2-printer" iconSize="32" styleClass="feature-icon"/><Label text="Printer" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 5" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2-file-document" iconSize="32" styleClass="feature-icon"/><Label text="Chair" styleClass="feature-title"/><Label text="Furniture" styleClass="hint"/><Label text="Qty: 15" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2-desk" iconSize="32" styleClass="feature-icon"/><Label text="Desk" styleClass="feature-title"/><Label text="Furniture" styleClass="hint"/><Label text="Qty: 8" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2-laptop" iconSize="32" styleClass="feature-icon"/><Label text="Laptop" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 12" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2-video" iconSize="32" styleClass="feature-icon"/><Label text="Projector" styleClass="feature-title"/><Label text="Electronics" styleClass="hint"/><Label text="Qty: 3" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2-clipboard-text" iconSize="32" styleClass="feature-icon"/><Label text="Whiteboard" styleClass="feature-title"/><Label text="Office" styleClass="hint"/><Label text="Qty: 6" styleClass="card-value"/></VBox>
+            <VBox styleClass="feature-card" prefWidth="160" alignment="CENTER" spacing="6"><FontIcon iconLiteral="mdi2-archive" iconSize="32" styleClass="feature-icon"/><Label text="Cabinet" styleClass="feature-title"/><Label text="Furniture" styleClass="hint"/><Label text="Qty: 4" styleClass="card-value"/></VBox>
         </TilePane>
         <HBox spacing="12">
             <Button text="Home" onAction="#goHome" styleClass="primary-btn"/>
@@ -30,6 +30,8 @@
         </HBox>
     </VBox>
 </VBox></ScrollPane>
+
+
 
 
 

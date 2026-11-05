@@ -8,7 +8,7 @@
       styleClass="view">
     <VBox alignment="CENTER" spacing="10" styleClass="hero" prefHeight="180">
         <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
-        <FontIcon iconLiteral="mdi2i-information" iconSize="48" styleClass="hero-icon"/>
+        <FontIcon iconLiteral="mdi2-information" iconSize="48" styleClass="hero-icon"/>
         <Label text="About IAMS" styleClass="hero-title"/>
         <Label text="Learn more about the system and its objectives" styleClass="hero-subtitle"/>
     </VBox>
@@ -38,6 +38,8 @@
         </HBox>
     </VBox>
 </VBox></ScrollPane>
+
+
 
 
 
