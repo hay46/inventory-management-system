@@ -190,6 +190,32 @@ public class InventoryController {
         if (s == null || s.trim().isEmpty()) return 0;
         try { return Integer.parseInt(s.trim()); } catch (Exception e) { return 0; }
     }
+    @FXML
+    public void exportCsv() {
+        Thread t = new Thread(() -> {
+            try {
+                var resp = ApiClient.get("/api/items/export");
+                if (resp.statusCode() == 200) {
+                    byte[] data = resp.body().getBytes(java.nio.charset.StandardCharsets.UTF_8);
+                    Platform.runLater(() -> {
+                        javafx.stage.FileChooser fc = new javafx.stage.FileChooser();
+                        fc.setTitle("Save CSV");
+                        fc.getExtensionFilters().add(new javafx.stage.FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+                        fc.setInitialFileName("inventory.csv");
+                        java.io.File file = fc.showSaveDialog(itemTable.getScene().getWindow());
+                        if (file != null) {
+                            try { java.nio.file.Files.write(file.toPath(), data); showAlert("Success", "Exported to " + file.getName()); }
+                            catch (Exception e) { showAlert("Error", e.getMessage()); }
+                        }
+                    });
+                } else {
+                    Platform.runLater(() -> showAlert("Error", resp.body()));
+                }
+            } catch (Exception e) { e.printStackTrace(); }
+        });
+        t.setDaemon(true); t.start();
+    }
+
     private void showAlert(String title, String msg) {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setTitle(title); a.setHeaderText(null); a.setContentText(msg); a.showAndWait();

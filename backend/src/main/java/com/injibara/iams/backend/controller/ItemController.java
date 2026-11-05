@@ -4,10 +4,13 @@ import com.injibara.iams.backend.dto.ItemRequest;
 import com.injibara.iams.backend.dto.ItemResponse;
 import com.injibara.iams.backend.service.ItemService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
@@ -36,6 +39,37 @@ public class ItemController {
     @GetMapping("/low-stock")
     public ResponseEntity<List<ItemResponse>> lowStock() {
         return ResponseEntity.ok(itemService.lowStock());
+    }
+
+    @GetMapping("/export")
+    public ResponseEntity<byte[]> exportCsv() {
+        List<ItemResponse> items = itemService.search(null, null, null);
+        StringBuilder sb = new StringBuilder();
+        sb.append("id,itemCode,itemName,category,location,unit,quantity,minimumStock,status\n");
+        for (ItemResponse i : items) {
+            sb.append(i.getId()).append(",")
+              .append(escape(i.getItemCode())).append(",")
+              .append(escape(i.getItemName())).append(",")
+              .append(escape(i.getCategoryName())).append(",")
+              .append(escape(i.getLocationName())).append(",")
+              .append(escape(i.getUnit())).append(",")
+              .append(i.getQuantity()).append(",")
+              .append(i.getMinimumStock()).append(",")
+              .append(i.getStatus()).append("\n");
+        }
+        byte[] bytes = sb.toString().getBytes(StandardCharsets.UTF_8);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType("text/csv"));
+        headers.setContentDispositionFormData("attachment", "inventory.csv");
+        return ResponseEntity.ok().headers(headers).body(bytes);
+    }
+
+    private String escape(String s) {
+        if (s == null) return "";
+        if (s.contains(",") || s.contains("\"") || s.contains("\n")) {
+            return "\"" + s.replace("\"", "\"\"") + "\"";
+        }
+        return s;
     }
 
     @PostMapping
